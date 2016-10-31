@@ -199,15 +199,15 @@ def xpisign(xpifile,
               signer=signer
               )
 
-    if isinstance(xpifile, basestring):
+    if isinstance(xpifile, str):
         with open(xpifile, "rb") as xp:
             return xpisign(xp, keyfile, outfile, **kw)
 
-    if isinstance(keyfile, basestring):
+    if isinstance(keyfile, str):
         with open(keyfile, "rb") as kp:
             return xpisign(xpifile, kp, outfile, **kw)
 
-    if outfile and isinstance(outfile, basestring):
+    if outfile and isinstance(outfile, str):
         with open(outfile, "wb") as op:
             xpisign(xpifile, keyfile, op, **kw)
             return outfile
