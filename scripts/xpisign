@@ -91,7 +91,7 @@ def main(args):
                                 )
                         with open(outfile, "wb") as outp:
                             outp.write(op.getvalue())
-                    except (ValueError, ex):
+                    except ValueError as ex:
                         optparse.error(ex.message)
             except IOError:
                 optparse.error("Failed to open outfile %s" % outfile)
