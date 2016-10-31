@@ -158,7 +158,7 @@ try:
                        ).write_der(pkcs7)
             return pkcs7.read()
 
-        except M2EVPError, ex:
+        except (M2EVPError, ex):
             if re.search("ANY PRIVATE KEY", ex.message):
                 raise ValueError("Key file does not contain a private key")
             raise ValueError("Signing failed. Wrong password?")
